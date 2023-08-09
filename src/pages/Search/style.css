@@ -1,0 +1,52 @@
+.searchPage{
+    margin-top: 80px;
+    width: 70%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+
+    .content{
+        display: flex;
+        width: 78%;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .head{
+            font-size: 15px;
+        }
+
+        .results{
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            /* justify-content: space-between; */
+        }
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    .searchPage{
+    
+        .content{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            
+            .head{
+                padding: 0 4rem;
+            }
+    
+            .results{
+                display: flex;
+                width: 100%;
+                flex-wrap: wrap;
+                margin-top: 2rem;
+                /* justify-content: space-between; */
+                justify-content: center;
+            }
+        }
+    }
+}

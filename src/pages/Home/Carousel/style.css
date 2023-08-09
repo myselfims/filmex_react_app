@@ -1,0 +1,65 @@
+.carousel{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1rem 0; 
+
+    .navigations{
+        display: flex;
+        align-items: center;
+        /* height: 100%; */
+        width: 100%;
+        justify-content: space-between;
+        position: absolute;
+        z-index: 2;
+        top: 9rem;
+        height: 0;
+
+        & svg{
+            height: 2rem;
+            width: 2rem;
+            opacity: 50%;
+            cursor: pointer;
+            &:hover{
+                opacity: 100%;
+            }
+        }
+    }
+
+    .items{
+        display: flex;
+        overflow-x: auto;
+        justify-content: space-between;
+        scroll-behavior: smooth;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+
+    .Skeleton{
+        display: flex;
+
+        .cardSkeleton{
+            margin: 0 0.3rem;
+            & div{
+                border-radius: 10px;
+                background-image: linear-gradient( rgba(216, 212, 212, 0.977)70%,rgb(95, 93, 93)10%,rgba(216, 212, 212, 0.977)70%);
+                margin-bottom: 0.3rem;
+            }
+
+        }
+        
+
+        
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    .navigations{
+        display: none;
+    }
+}

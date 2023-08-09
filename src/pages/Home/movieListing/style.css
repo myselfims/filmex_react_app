@@ -1,0 +1,51 @@
+.movieListing{
+    display: flex;
+    width: 60vw;
+    flex-direction: column;
+    margin: 2rem 0;
+
+    .listingHead{
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
+        align-items: center;
+        width: 100%;
+    
+        .sortingBtns{
+            border-radius: 30px;
+            padding: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & button{
+                font-size: 18px;
+                background-color: transparent;
+                border: none;
+                padding: 5px 20px;
+                border-radius: 30px;
+                cursor: pointer;
+    
+            }
+    
+            .selected{
+                background-image: var(--gradient);
+            }
+        }
+    
+        & select{
+            background-image: var(--gradient);
+            cursor: pointer;
+            border: none;
+            outline: none;
+            border-radius: 3px;
+            padding: 5px 10px ;
+    
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .movieListing{
+        width: 90vw;
+    }
+}

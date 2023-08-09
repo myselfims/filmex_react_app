@@ -1,0 +1,190 @@
+
+
+.show{
+    background-color: black;
+    position: fixed !important;
+    top: 0;
+    animation: scrollDown 0.3s ease 1 ;
+}
+
+@keyframes scrollDown {
+    0%{
+        top: -10rem;
+    }
+    100%{
+        top: 0;
+    }
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    top: 0;
+
+    .navBar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: rgba(0, 0, 0, 0.189);
+        padding: 15px 20px;
+        position: relative;
+
+        .active{
+            color: aqua;
+        }
+
+        .logo{
+            height: 30px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+
+            & img{
+                width: 100px;
+                object-fit: fill;
+            }
+        }
+
+        & ul{
+            list-style: none;
+            color: aqua;
+            display: flex;
+            justify-content: space-between;
+
+            & li{
+                margin: 0 1rem;
+                cursor: pointer;
+                transition: opacity 0.1s ease;
+                &:hover{
+                    opacity: 60%;
+                }
+            }
+        }
+
+
+        .searchDiv{
+            & svg{
+                width: 42px;
+                height: 25px;
+                cursor: pointer;
+                &:hover{
+                    opacity: 70%;
+                }
+            }
+
+            .hamburger{
+                display: none;
+                margin-left: 17px;
+            }
+        }
+
+        .searchBox{
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            left: 0;
+            top: 45px;
+            animation: slideDown 0.3s ease 1;
+            
+            & input{
+                outline: none;
+                background-color: transparent;
+                border: none;
+                font-size: 15px;
+                width: 100%;
+                color: black;
+                padding: 0.5rem;
+            }
+
+            & button{
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                margin: 0 1rem;
+                background-image: var(--gradient);
+                border: none;
+                cursor: pointer;
+                
+                &:hover{
+                    opacity: 70%;
+                }
+            }
+
+            & div{
+                display: flex;
+                justify-content: space-between;
+                background-color: white;
+                padding: 0.5rem 0;
+                border-radius: 0.5rem;
+                width: 60%;
+                align-items: center;
+
+                & svg{
+                    color: red;
+                    width: 30px;
+                    height: 30px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideDown {
+    0%{
+        top: -5rem;
+    }
+    100%{
+        top: 3rem;
+    }
+}
+
+
+@media screen and (max-width:600px){
+
+    .showNav + .navBar{
+        display: flex;
+        animation: slideDown 0.5s ease 1 ;
+        background-color: rgb(25, 25, 25);
+    }
+    .hide{
+        display: none;
+    }
+    .navLinks{
+        & ul{
+            margin-top: 8px;
+            font-size: 15px;
+            flex-direction: column;
+        }
+    }
+    
+    .header{
+        .navBar{
+            flex-direction: column;
+            backdrop-filter: blur(5px);
+            
+            .searchBox{
+                & div{
+                    width: 90%;
+                }
+
+                
+            }
+
+            .searchDiv{
+                .hamburger{
+                    display: inline;
+                }
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
+        }
+    }
+}

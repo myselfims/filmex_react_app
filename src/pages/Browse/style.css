@@ -1,0 +1,35 @@
+.browsePage{
+    margin-top: 80px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+
+    .content{
+        /* background-color: blue; */
+        width: 78%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+
+        .head{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 18px;
+
+            & select{
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+            }
+        }
+
+        .body{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: space-between;
+        }
+    }
+
+}

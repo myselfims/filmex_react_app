@@ -1,0 +1,58 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --gradient : linear-gradient(to left,rgb(21, 63, 63), rgb(0, 221, 254));
+  --background : #1c2027;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1c2027;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+
+
+@media screen and (max-width:600px) {
+  html{
+    font-size: 8px;
+  }
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.skeleton{
+  border-radius: 10px;
+  background-image: linear-gradient( rgba(216, 212, 212, 0.977)70%,rgb(95, 93, 93)10%,rgba(216, 212, 212, 0.977)70%);
+  margin-bottom: 0.3rem;
+  animation: skeletonAnimation 1s ease infinite ;
+}
+
+@keyframes skeletonAnimation{
+  0%{
+    opacity: 50%;
+  }
+  50%{
+    opacity: 100%;
+  }
+  100%{
+    opacity: 50%;
+  }
+}
+

@@ -1,0 +1,207 @@
+.detailsPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+    position: relative;
+
+    .background{
+        width: 100%;
+        height: 100%;
+        /* background-color: lime; */
+        position: absolute;
+        z-index: 0;
+
+        & img{
+            width: 100%;
+            height: 100%;
+            opacity: 20%;
+            filter: blur(5px);
+        }
+
+        .fadeEffect{
+            width: 100%;
+            height: 63px;
+            background-color: var(--background);
+            box-shadow: 0px 0px 3rem 3rem var(--background);
+            position: absolute;
+        }
+    }
+    .content{
+        z-index: 2;
+        margin: 7rem 0;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .itemDetails{
+            display: flex;
+
+            .poster{
+                margin: 0 2rem;
+                width: 18rem;
+                /* height: 25rem; */
+                & img{
+                    width: 18rem;
+                    /* height: 25rem; */
+                    border-radius: 0.5rem;
+                }
+            }
+
+            .info{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                font-size: 15px;
+                
+                & h1{
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                .btns{
+                    display: flex;
+                    /* justify-content: space-between; */
+                    align-items: center;
+                    text-align: center;
+
+                    & h3{
+                        margin: 0 1rem;
+                        font-size: 14px;
+                    }
+
+                    & svg{
+                        width: 70px;
+                        height: 70px;
+                        cursor: pointer;
+                        transition: opacity 0.2s ease;
+                        margin-right: 15px;
+
+                        &:hover{
+                            opacity: 70%;
+                        }
+                    }
+                }
+
+                .desc{
+                    font-size: 15px;
+                }
+
+
+                .detail{
+                    font-size: 15px;
+                    & div{
+                        display: flex;   
+                        
+                        margin: 1rem 2rem 0 0;
+                        align-items: center;
+
+                        & p{
+                            /* background-image: var(--gradient); */
+                            padding: 2px 4px;
+                        }
+                    }
+                }
+                
+            }
+
+        }
+        .cast{
+            width: 100%;
+        }
+        .officialVidoes{
+            width: 100%;
+        }
+    }
+
+    .detailSkeleton{
+        display: flex;
+        justify-content: space-between;
+
+        .posterBlock{
+            width: 18rem;
+            height: 25rem;
+        }
+
+        .infoBlock{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* width: 100%; */
+            margin: 1rem;
+
+            .titleBlock{
+                width: 20rem;
+                height: 2rem;
+            }
+            .sloganBlock{
+                width: 22rem;
+                height: 1rem;
+            }
+    
+            .btnsBlock{
+                width: 23rem;
+                height: 5rem;
+            }
+    
+            .overviewBlock{
+                width: 50vw;
+                height: 6rem;
+            }
+            .statusBlock{
+                width: 100%;
+                height: 2rem;
+            }
+        }
+
+        
+    }
+}
+
+@media screen and (max-width:600px) {
+    .detailsPage{
+
+        .content{
+            width: 95%;
+
+            .itemDetails{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+    
+                .poster{
+                    margin: 0 ;
+                    width: 100%;
+                    /* height: 25rem; */
+                    & img{
+                        width: 100%;
+                        /* height: 25rem; */
+                        border-radius: 0.5rem;
+                    }
+                }
+            }
+        }
+
+        .detailSkeleton{
+            flex-direction: column;
+            width: 100%;
+
+            .posterBlock{
+                width: 100%;
+                height: 50rem;
+            }
+        }
+
+    }
+
+
+
+    .info{
+        margin: 4rem 0 ;
+        & div{
+            font-size: 1.3rem;
+        }
+    }
+}
