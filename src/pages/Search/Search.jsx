@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './style.css'
 import Card from '../../components/card/Card'
-import useFetch from '../../customhooks/useFetch'
+import Loading from '../../components/loading/Loading'
 import fetchDataFromApi from '../../utils/Api'
 
 const Search = () => {
@@ -27,6 +27,7 @@ const Search = () => {
           <h3>Search results of "{query}"</h3>
         </div>
         <div className="results">
+            {data?.length==0?<Loading/>:null}
             {data?.map((item)=>{
               return <Card key={item.id} data={item}/>
             })}
