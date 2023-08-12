@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useMemo } from 'react';
 import './style.css'
 import useFetch from '../../customhooks/useFetch'
 import { useParams } from 'react-router-dom';
@@ -15,6 +15,7 @@ const Browse = () => {
   const [pageNum, setPageNum] = useState(1)
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
+  const d = useMemo
 
 
   const initialFetch = ()=>{
