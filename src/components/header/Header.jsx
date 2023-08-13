@@ -58,9 +58,11 @@ const Header = () => {
       <div className={`header ${navshow?'show':null}`}>
         <nav>
           <div className="navBar">
-            <div className="logo">
-              <img src="https://image.xumo.com/v1/channels/channel/99951120/600x600.webp?type=color_onBlack" alt="logo" />
-            </div>
+            <Link to={'/'}>
+              <div className="logo">
+                <img src="https://image.xumo.com/v1/channels/channel/99951120/600x600.webp?type=color_onBlack" alt="logo" />
+              </div>
+            </Link>
             <div className={`navLinks ${!mobileNav?'hide':'showNav'}`}>
               <ul>
                 <li><Link className={`${active=='home'?'active':null}`} onClick={()=>handleLinkClick('home')} to={'/'}>Home</Link></li>

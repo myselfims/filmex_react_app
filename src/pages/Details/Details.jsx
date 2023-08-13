@@ -36,7 +36,6 @@ const Details = () => {
   useEffect(()=>{
     setData(null)
     fetchDataFromApi(`/${mediatype}/${id}`).then((res)=>{
-      document.title = (data?.title? data?.title:data?.original_name)
       setData(res)
     })
     fetchDataFromApi(`/${mediatype}/${id}/videos`).then((res)=>setVideos(res))
