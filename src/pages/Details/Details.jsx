@@ -35,9 +35,11 @@ const Details = () => {
 
   useEffect(()=>{
     setData(null)
-    fetchDataFromApi(`/${mediatype}/${id}`).then((res)=>setData(res))
+    fetchDataFromApi(`/${mediatype}/${id}`).then((res)=>{
+      document.title = (data?.title? data?.title:data?.original_name)
+      setData(res)
+    })
     fetchDataFromApi(`/${mediatype}/${id}/videos`).then((res)=>setVideos(res))
-
     window.scrollTo({top:0,behavior:'smooth'})
   },[id])
 
