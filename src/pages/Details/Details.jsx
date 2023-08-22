@@ -18,6 +18,10 @@ const Details = () => {
   const [videos, setVideos] = useState(null)
   const [player, setPlayer] = useState(false)
   const [videoId, setVideoId] = useState(null)
+  const credits = useFetch(`/${mediatype}/${id}/credits`)
+  const [crew, setCrew] = useState({director:null,writer:null})
+
+  
 
   const togglePlayer = (id)=>{
     if (player){
@@ -33,12 +37,19 @@ const Details = () => {
     }
   }
 
+
   useEffect(()=>{
     setData(null)
     fetchDataFromApi(`/${mediatype}/${id}`).then((res)=>{
       setData(res)
     })
     fetchDataFromApi(`/${mediatype}/${id}/videos`).then((res)=>setVideos(res))
+    fetchDataFromApi(`/${mediatype}/${id}/credits`).then((res)=>{
+      let director = res.crew.filter((item)=>item.department=='Directing')[0]?.name
+      let writer = res.crew.filter((item)=>item.department=='Writing')[0]?.name
+      setCrew({director:director,writer:writer})
+    })
+
     window.scrollTo({top:0,behavior:'smooth'})
   },[id])
 
@@ -112,10 +123,10 @@ const Details = () => {
 
               </div>
               <div>
-                <strong>Director:</strong>
+                <strong>Director:{crew.director?(' '+crew.director):'Not available'}</strong>
               </div>
               <div>
-                <strong>Writer:</strong>
+                <strong>Writer:{crew.writer?(' '+crew.writer):'Not available'}</strong>
               </div>
             </div>
           </div>
