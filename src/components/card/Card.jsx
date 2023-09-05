@@ -16,7 +16,7 @@ const Card = ({data}) => {
   }
 
   return (
-    <Link to={`${data.media_type? `/${data.media_type}/${data.id}`:`/movie/${data.id}`}`}>
+    <Link to={`${data.media_type? `/${data.media_type}/${data.id}`:`/tv/${data.id}`}`}>
       <div className='movieCard'>
         <div className="poster">
           <Img image={{

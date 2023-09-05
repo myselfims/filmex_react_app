@@ -10,6 +10,12 @@ const HeroBanner = () => {
     const [background, setBackground] = useState(null)
     const [input, setInput] = useState('')
 
+    const enterKeySearch = (e)=>{
+      if (e.key === 'Enter'){
+        handleSearch()
+      }
+    }
+
     useEffect(()=>{
       let bg = data?.results[Math.floor(Math.random()*20)]?.backdrop_path
       setBackground(bg)
@@ -34,6 +40,7 @@ const HeroBanner = () => {
             <div className="inputBox">
                 <span>
                     <input
+                    onKeyUp={enterKeySearch}
                     onChange={(e)=>setInput(e.target.value)}
                     value={input}
                     type="text"  placeholder='Search any movie or tv show' />
