@@ -32,7 +32,7 @@ const MovieListing = ({title,url}) => {
           </div> */}
         </div>
         <div className="cardListings">
-          <Carousel data={data} loading={loading} />
+          <Carousel data={database} loading={loading} />
         </div>
     </div>
   )
