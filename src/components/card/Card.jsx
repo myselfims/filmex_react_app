@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import './style.css'
 import Img from '../lazyLoad/lazyLoad'
 import Ratings from '../ratings/Ratings'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const Card = ({data}) => {
-  // console.log(data)
+  const {mediatype} = useParams()
 
   const checkTitle = (title)=>{
     if (title.length>25){
@@ -16,7 +16,7 @@ const Card = ({data}) => {
   }
 
   return (
-    <Link to={`${data.media_type? `/${data.media_type}/${data.id}`:`/tv/${data.id}`}`}>
+    <Link to={`${data?.media_type? `/${data?.media_type}/${data.id}`:`/${mediatype}/${data.id}`}`}>
       <div className='movieCard'>
         <div className="poster">
           <Img image={{

@@ -2,7 +2,7 @@ import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Img = ({ image }) => (
-  <div>
+  <div className='backgournd-image'>
     <LazyLoadImage
       effect='blur'
       alt={image.alt}

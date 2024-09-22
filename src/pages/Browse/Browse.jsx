@@ -28,7 +28,8 @@ const Browse = () => {
 
   const fetchNext = ()=>{
     setPageNum(pageNum+1)
-    fetchDataFromApi(`/discover/${mediatype}?page=${pageNum}&with_genres=${currentGenre}`).then((res)=>{
+    let g = currentGenre? `&with_genres=${currentGenre}` : '' 
+    fetchDataFromApi(`/discover/${mediatype}?page=${pageNum}${g}`).then((res)=>{
       setData(data.concat(res.results))
     })
   }
@@ -81,7 +82,7 @@ const Browse = () => {
               return <Card key={item.id+currentGenre+mediatype} data={item}/>
             })}
 
-          <TopMover/>
+          <TopMover />
         </div>
           </InfiniteScroll>}
       </div>
