@@ -36,6 +36,7 @@ const Browse = () => {
   }
 
   const fetchDataByGenre = (genre)=>{
+    setPageNum(pageNum+1)
     setLoading(true)
     setGenre(genre)
     fetchDataFromApi(`/discover/${mediatype}?page=${pageNum}&with_genres=${genre}`).then((res)=>{
