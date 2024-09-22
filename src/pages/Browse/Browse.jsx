@@ -21,6 +21,7 @@ const Browse = () => {
   const initialFetch = ()=>{
     setLoading(true)
     fetchDataFromApi(`/discover/${mediatype}?page=${pageNum}`).then((res)=>{
+      setPageNum(pageNum+1)
       setLoading(false)
       setData(res.results)
     })
