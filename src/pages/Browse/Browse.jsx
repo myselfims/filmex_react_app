@@ -1,7 +1,7 @@
 import React, { useState,useEffect,useMemo } from 'react';
 import './style.css'
 import useFetch from '../../customhooks/useFetch'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import fetchDataFromApi from '../../utils/Api';
 import Card from '../../components/card/Card';
 import InfiniteScroll from 'react-infinite-scroll-component'
@@ -9,13 +9,13 @@ import Loading from '../../components/loading/Loading';
 import TopMover from '../../components/moveToTop/TopMover';
 
 const Browse = () => {
-  const {mediatype} = useParams()
+  const {mediatype, genre} = useParams()
   const [genres, setGenres] = useState([])
   const [currentGenre, setGenre] = useState(null)
   const [pageNum, setPageNum] = useState(1)
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
-  const d = useMemo
+  const navigate = useNavigate()
 
 
   const initialFetch = ()=>{
@@ -47,20 +47,26 @@ const Browse = () => {
 
 
   useEffect(()=>{
-    initialFetch()
+    if (genre){
+      fetchDataByGenre(genre)
+    } else {
+      initialFetch()
+    }
     fetchDataFromApi(`/genre/${mediatype}/list`).then((res)=>{
       setGenres(res.genres)
     })
-  },[mediatype])
+  },[mediatype,genre])
 
   return (
-    <div key={mediatype} className='browsePage'>
+    <div key={mediatype+genre} className='browsePage'>
       <div className="content">
         <div className="head">
           <h3>Explore {mediatype==='tv'?'TV Shows':'Movies'}</h3>
           <div className="filters">
-              <select onChange={(e)=>fetchDataByGenre(e.target.value)} name="" id="">
-                <option value="" defaultChecked={currentGenre?true:false}>Select Genres</option>
+              <select onChange={(e)=>navigate(`/browse/${mediatype}/${e.target.value}`)} name="" id="">
+                {genre?
+                <option value="" defaultChecked={currentGenre?true:false}>{genres?.filter((g)=>g.id==genre)[0]?.name}</option>:
+                <option value="" defaultChecked={currentGenre?true:false}>Select Genres</option>}
                 {genres?.map((item)=>{
                   return (
                     <option key={item.id} value={item.id}>{item?.name}</option>

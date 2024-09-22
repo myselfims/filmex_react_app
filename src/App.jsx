@@ -46,6 +46,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/browse/:mediatype' element={<Browse/>} />
+          <Route path='/browse/:mediatype/:genre' element={<Browse/>} />
           <Route path='/search/:query' element={<Search/>} />
           <Route exact path='/:mediatype/:id' element={<Details/>} />
         </Routes>
